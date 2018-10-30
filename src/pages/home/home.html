@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>iWeather</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <ion-grid *ngIf= "weather">
+     <ion-row>
+       <ion-col width-50 offset-25>
+           <h3 class="location"> {{ weather.location.name }}</h3>
+           <div class="icon"><img src="{{weather.current.condition.icon}}" height="60px" width="70px" alt=""></div>
+           <h3 class="desc">{{weather.current.condition.text}}</h3>
+           <h1 class="temp">{{weather.current.temp_f}}&deg;</h1>
+       </ion-col>
+     </ion-row>
+     <ion-row>
+       <ion-col width-100>
+        <ion-list>
+          <ion-item>
+            <strong>Temp:</strong> {{weather.current.temp_c}}&deg;C
+          </ion-item>
+          <ion-item>
+            <strong>Humidity:</strong> {{weather.current.humidity}}%
+          </ion-item>
+          <ion-item>
+            <strong>Wind Speed:</strong> {{weather.current.wind_kph}}kph
+          </ion-item>
+          <ion-item>
+            <strong>Localtime:</strong> {{weather.location.localtime}}
+          </ion-item>
+        </ion-list>
+       </ion-col>
+     </ion-row>
+     
+     <ion-row class="social-share">
+        <h4 style="width:100%">Share with friends</h4>
+     </ion-row>
+
+     <ion-row>       
+       <ion-col>
+         <button ion-fab color='whatsapp' (click)="onClickWhatsapp()">
+           <ion-icon name="logo-whatsapp"></ion-icon>
+         </button>
+       </ion-col>
+       <ion-col>
+         <button ion-fab color='fb' (click)="onClickFb()">
+           <ion-icon name="logo-facebook"></ion-icon>
+         </button>
+       </ion-col>
+       <ion-col>
+         <button ion-fab color='twitter' (click)="onClickTwitter()">
+           <ion-icon name="logo-twitter"></ion-icon>
+         </button>
+       </ion-col>
+       <ion-col>
+         <button ion-fab color='instagram' (click)="onClickInsta()">
+           <ion-icon name="logo-instagram"></ion-icon>
+         </button>
+       </ion-col>
+     </ion-row>
+  </ion-grid>
+  <br>
+  <br>
+  <br>
+</ion-content>
